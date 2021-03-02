@@ -1,5 +1,4 @@
-#include "httpd.h"
-#include "tools.h"
+#include "../header/httpd.h"
 
 #include <arpa/inet.h>
 #include <fcntl.h>
@@ -198,9 +197,11 @@ void respond(int n)
       if (t[1] == '\r' && t[2] == '\n')
         break;
     }
-    t++;                                   // now the *t shall be the beginning of user payload
+    t = strtok(NULL, "\r\n"); // now the *t shall be the beginning of user payload
     t2 = request_header("Content-Length"); // and the related header if there is
     payload = t;
+
+    
 
     payload_size = t2 ? atol(t2) : (rcvd - (t - buf));
 
