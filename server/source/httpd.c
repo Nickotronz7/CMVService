@@ -61,8 +61,10 @@ void serve_forever(const char *PORT)
     }
     else
     {
+      fprintf(stderr, "\x1b[32m + ID fuera del FORK  %d \x1b[0m\n", getpid());
       if (fork() == 0)
       {
+        fprintf(stderr, "\x1b[32m + ID dentro del FORK  %d \x1b[0m\n", getpid());
         close(listenfd);
         respond(slot);
         close(clients[slot]);
@@ -197,11 +199,9 @@ void respond(int n)
       if (t[1] == '\r' && t[2] == '\n')
         break;
     }
-    t = strtok(NULL, "\r\n"); // now the *t shall be the beginning of user payload
+    t = strtok(NULL, "\r\n");              // now the *t shall be the beginning of user payload
     t2 = request_header("Content-Length"); // and the related header if there is
     payload = t;
-
-    
 
     payload_size = t2 ? atol(t2) : (rcvd - (t - buf));
 
