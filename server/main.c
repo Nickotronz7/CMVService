@@ -14,7 +14,7 @@ int main(int c, char **v)
 
     int *lens = (int *)malloc(4 * sizeof(int));
 
-    FILE *fp = fopen("/home/nickotronz7/Documents/DevProjects/CMVService/server/config.conf", "r");
+    FILE *fp = fopen("/etc/server/config.conf", "r");
 
     if (fp == NULL)
     {
