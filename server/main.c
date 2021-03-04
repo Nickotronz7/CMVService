@@ -1,9 +1,9 @@
 #include "header/httpd.h"
 #include <stdlib.h>
+#include "header/tools.h"
+#include "header/cJSON.h"
 
 #define MAXCHAR 1000
-
-int getlen(char line[]);
 
 int main(int c, char **v)
 {
@@ -104,20 +104,12 @@ void route()
 
     ROUTE_POST("/")
     {
+
         printf("HTTP/1.1 200 OK\r\n\r\n");
         printf("Wow, seems that you POSTED %lld bytes. \r\n", payload_size);
-        printf("Data: %s", payload);
+        fprintf(stderr, "debugin\n");
+        parse_object(payload);
     }
 
     ROUTE_END()
-}
-
-int getlen(char line[])
-{
-    int len = 0;
-    while (line[len] != '\n')
-    {
-        len++;
-    }
-    return len;
 }

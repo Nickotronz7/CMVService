@@ -1,7 +1,7 @@
 #include "../header/httpd.h"
 
 #include <arpa/inet.h>
-#include <fcntl.h>
+//#include <fcntl.h>
 #include <netdb.h>
 #include <signal.h>
 #include <stdio.h>
@@ -9,8 +9,8 @@
 #include <string.h>
 #include <sys/mman.h>
 #include <sys/socket.h>
-#include <sys/stat.h>
-#include <sys/types.h>
+//#include <sys/stat.h>
+//#include <sys/types.h>
 #include <unistd.h>
 
 #define MAX_CONNECTIONS 1000
@@ -29,7 +29,7 @@ void serve_forever(const char *PORT)
 {
   struct sockaddr_in clientaddr;
   socklen_t addrlen;
-  char c;
+//  char c;
 
   int slot = 0;
 
@@ -61,10 +61,8 @@ void serve_forever(const char *PORT)
     }
     else
     {
-      fprintf(stderr, "\x1b[32m + ID fuera del FORK  %d \x1b[0m\n", getpid());
       if (fork() == 0)
       {
-        fprintf(stderr, "\x1b[32m + ID dentro del FORK  %d \x1b[0m\n", getpid());
         close(listenfd);
         respond(slot);
         close(clients[slot]);
@@ -145,8 +143,10 @@ header_t *request_headers(void)
 // client connection
 void respond(int n)
 {
-  int rcvd, fd, bytes_read;
-  char *ptr;
+  int rcvd;
+//  fd;
+//  , bytes_read;
+//  char *ptr;
   int buf_size = 65535;
 
   buf = malloc(buf_size);
@@ -181,7 +181,8 @@ void respond(int n)
     char *t, *t2;
     while (h < reqhdr + 16)
     {
-      char *k, *v, *t;
+      char *k, *v;
+//      *t;
 
       k = strtok(NULL, "\r\n: \t");
       if (!k)
@@ -194,7 +195,7 @@ void respond(int n)
       h->name = k;
       h->value = v;
       h++;
-      fprintf(stderr, "[H] %s: %s\n", k, v);
+//      fprintf(stderr, "[H] %s: %s\n", k, v);
       t = v + 1 + strlen(v);
       if (t[1] == '\r' && t[2] == '\n')
         break;
