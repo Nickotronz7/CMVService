@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/nickotronz7/Documents/DevProjects/CMVService/build",
+  "command": "/bin/gcc-9   -g -std=gnu99 -o CMakeFiles/CMVService.dir/server/main.c.o -c /home/nickotronz7/Documents/DevProjects/CMVService/server/main.c",
+  "file": "/home/nickotronz7/Documents/DevProjects/CMVService/server/main.c"
+},
+{
+  "directory": "/home/nickotronz7/Documents/DevProjects/CMVService/build",
+  "command": "/bin/gcc-9   -g -std=gnu99 -o CMakeFiles/CMVService.dir/server/source/cJSON.c.o -c /home/nickotronz7/Documents/DevProjects/CMVService/server/source/cJSON.c",
+  "file": "/home/nickotronz7/Documents/DevProjects/CMVService/server/source/cJSON.c"
+},
+{
+  "directory": "/home/nickotronz7/Documents/DevProjects/CMVService/build",
+  "command": "/bin/gcc-9   -g -std=gnu99 -o CMakeFiles/CMVService.dir/server/source/httpd.c.o -c /home/nickotronz7/Documents/DevProjects/CMVService/server/source/httpd.c",
+  "file": "/home/nickotronz7/Documents/DevProjects/CMVService/server/source/httpd.c"
+},
+{
+  "directory": "/home/nickotronz7/Documents/DevProjects/CMVService/build",
+  "command": "/bin/gcc-9   -g -std=gnu99 -o CMakeFiles/CMVService.dir/server/source/tools.c.o -c /home/nickotronz7/Documents/DevProjects/CMVService/server/source/tools.c",
+  "file": "/home/nickotronz7/Documents/DevProjects/CMVService/server/source/tools.c"
+}
+]

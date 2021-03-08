@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/cJSON.h
+stddef.h
+-
+
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/httpd.h
+stdio.h
+-
+string.h
+-
+
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/tools.h
+stdio.h
+-
+
+/home/nickotronz7/Documents/DevProjects/CMVService/server/source/tools.c
+stdlib.h
+-
+../header/tools.h
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/tools.h
+../header/cJSON.h
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/cJSON.h
+../header/httpd.h
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/httpd.h
+
