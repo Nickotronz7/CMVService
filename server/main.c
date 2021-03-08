@@ -3,16 +3,16 @@
 #include "header/tools.h"
 #include "header/cJSON.h"
 
-#define MAXCHAR 1000
-
 int main(int c, char **v)
 {
-    char *t_port_val = (char *)malloc(MAXCHAR * sizeof(char));
-    char *t_colores_val = (char *)malloc(MAXCHAR * sizeof(char));
-    char *t_histo_val = (char *)malloc(MAXCHAR * sizeof(char));
-    char *t_logs_val = (char *)malloc(MAXCHAR * sizeof(char));
 
-    int *lens = (int *)malloc(4 * sizeof(int));
+    t_port_val = (char *)malloc(MAXCHAR * sizeof(char));
+    t_colores_val = (char *)malloc(MAXCHAR * sizeof(char));
+    t_histo_val = (char *)malloc(MAXCHAR * sizeof(char));
+    t_logs_val = (char *)malloc(MAXCHAR * sizeof(char));
+    t_pyS_val = (char *)malloc(MAXCHAR * sizeof(char));
+
+    lens = (int *)malloc(5 * sizeof(int));
 
     FILE *fp = fopen("/etc/server/config.conf", "r");
 
@@ -28,17 +28,20 @@ int main(int c, char **v)
         fgets(t_colores_val, MAXCHAR, fp);
         fgets(t_histo_val, MAXCHAR, fp);
         fgets(t_logs_val, MAXCHAR, fp);
+        fgets(t_pyS_val, MAXCHAR, fp);
     }
 
     *lens = getlen(t_port_val);
     *(lens + 1) = getlen(t_colores_val);
     *(lens + 2) = getlen(t_histo_val);
     *(lens + 3) = getlen(t_logs_val);
+    *(lens + 4) = getlen(t_pyS_val);
 
-    char *port = (char *)malloc(*lens * sizeof(char));
-    char *colores_path = (char *)malloc(*(lens + 1) * sizeof(char));
-    char *histo_path = (char *)malloc(*(lens + 2) * sizeof(char));
-    char *logs_path = (char *)malloc(*(lens + 3) * sizeof(char));
+    port = (char *)malloc(*lens * sizeof(char));
+    colores_path = (char *)malloc(*(lens + 1) * sizeof(char));
+    histo_path = (char *)malloc(*(lens + 2) * sizeof(char));
+    logs_path = (char *)malloc(*(lens + 3) * sizeof(char));
+    pyS_path = (char *)malloc(*(lens + 4) * sizeof(char));
 
     int i = 0;
     while (i < *lens)
@@ -64,6 +67,13 @@ int main(int c, char **v)
         logs_path[i] = t_logs_val[i];
         i++;
     }
+    i = 0;
+    while (i < *(lens + 4))
+    {
+        pyS_path[i] = t_pyS_val[i];
+        i++;
+    }
+    
 
     free(fp);
     free(lens);
@@ -71,7 +81,7 @@ int main(int c, char **v)
     free(t_colores_val);
     free(t_histo_val);
     free(t_logs_val);
-    
+    free(t_pyS_val);
 
     // load_config();
     serve_forever(port);
@@ -107,7 +117,6 @@ void route()
 
         printf("HTTP/1.1 200 OK\r\n\r\n");
         printf("Wow, seems that you POSTED %lld bytes. \r\n", payload_size);
-        fprintf(stderr, "debugin\n");
         parse_object(payload);
     }
 
