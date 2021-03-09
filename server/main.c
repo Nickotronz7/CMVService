@@ -117,7 +117,8 @@ void route()
 
         printf("HTTP/1.1 200 OK\r\n\r\n");
         printf("Wow, seems that you POSTED %lld bytes. \r\n", payload_size);
-        parse_object(payload);
+        fprintf(stderr, "%s\n", payload);
+        // parse_object(payload);
     }
 
     ROUTE_END()

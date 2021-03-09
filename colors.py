@@ -11,6 +11,9 @@ args = sys.argv[1:]
 destPic_path = args[0]
 encodedPic = args[1]
 
+if (encodedPic[:2] != '/9'):
+    encodedPic = encodedPic[27:]
+
 picName = str(calendar.timegm(time.gmtime()))+".png"
 tpic = open("/tmp/"+picName, "wb")
 decodedPic = base64.b64decode(encodedPic)

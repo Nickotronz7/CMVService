@@ -33,9 +33,8 @@ void parse_object(char *string)
     {
         strcpy(systemCall, "python3 ");
         strcat(systemCall, pyS_path);
-        strcat(systemCall, " ");
-        strcat(systemCall, "colors.py ");
-        strcat(systemCall, colores_path);
+        strcat(systemCall, "histograma.py ");
+        strcat(systemCall, histo_path);
         strcat(systemCall, " ");
         strcat(systemCall, image->valuestring);
         res = system(systemCall);
@@ -44,9 +43,8 @@ void parse_object(char *string)
     {
         strcpy(systemCall, "python3 ");
         strcat(systemCall, pyS_path);
-        strcat(systemCall, " ");
-        strcat(systemCall, "histograma.py ");
-        strcat(systemCall, histo_path);
+        strcat(systemCall, "colors.py ");
+        strcat(systemCall, colores_path);
         strcat(systemCall, " ");
         strcat(systemCall, image->valuestring);
         res = system(systemCall);

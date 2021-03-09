@@ -20,15 +20,13 @@ string.h
 stdio.h
 -
 
-/home/nickotronz7/Documents/DevProjects/CMVService/server/source/tools.c
+/home/nickotronz7/Documents/DevProjects/CMVService/server/main.c
+header/httpd.h
+/home/nickotronz7/Documents/DevProjects/CMVService/server/header/httpd.h
 stdlib.h
 -
-string.h
--
-../header/tools.h
+header/tools.h
 /home/nickotronz7/Documents/DevProjects/CMVService/server/header/tools.h
-../header/cJSON.h
+header/cJSON.h
 /home/nickotronz7/Documents/DevProjects/CMVService/server/header/cJSON.h
-../header/httpd.h
-/home/nickotronz7/Documents/DevProjects/CMVService/server/header/httpd.h
 
