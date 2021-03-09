@@ -20,7 +20,7 @@ decodedPic = base64.b64decode(encodedPic)
 tpic.write(decodedPic)
 tpic.close()
 
-img = cv2.imread(picName)
+img = cv2.imread("/tmp/"+picName)
 
 img_shape = img.shape
 height = img_shape[0]
@@ -40,8 +40,9 @@ colors = [R, G, B]
 iMax = colors.index(max(colors))
 
 if (iMax == 0):
-    copyfile("/tmp/"+picName, destPic_path+'R/')
+    copyfile("/tmp/"+picName, destPic_path+'R/'+picName)
 elif (iMax == 1):
-    copyfile("/tmp/"+picName, destPic_path+'G/')
+    copyfile("/tmp/"+picName, destPic_path+'G/'+picName)
 else:
-    copyfile("/tmp/"+picName, destPic_path+'B/')
+    copyfile("/tmp/"+picName, destPic_path+'B/'+picName)
+

@@ -19,7 +19,7 @@ decodedPic = base64.b64decode(encodedPic)
 tpic.write(decodedPic)
 tpic.close()
 
-img = cv2.imread(picName)
+img = cv2.imread("/tmp/"+picName)
 img_to_yuv = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
 img_to_yuv[:, :, 0] = cv2.equalizeHist(img_to_yuv[:, :, 0])
 hist_equalization_result = cv2.cvtColor(img_to_yuv, cv2.COLOR_YUV2BGR)

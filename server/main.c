@@ -73,7 +73,6 @@ int main(int c, char **v)
         pyS_path[i] = t_pyS_val[i];
         i++;
     }
-    
 
     free(fp);
     free(lens);
@@ -117,8 +116,8 @@ void route()
 
         printf("HTTP/1.1 200 OK\r\n\r\n");
         printf("Wow, seems that you POSTED %lld bytes. \r\n", payload_size);
-        fprintf(stderr, "%s\n", payload);
-        // parse_object(payload);
+        parse_object(payload);
+        fprintf(stderr, "200 OK :D");
     }
 
     ROUTE_END()
