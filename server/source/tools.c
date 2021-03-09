@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "../header/tools.h"
 #include "../header/cJSON.h"
@@ -17,7 +18,7 @@ int getlen(char line[])
 
 void parse_object(char *string)
 {
-    clean_string(string);
+    clean_string(string);    
     cJSON *json = cJSON_Parse(string);
 
     cJSON *operation = NULL;
