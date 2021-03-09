@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../etc/server"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"optional": "cpp"
+		}
+	}
+}
