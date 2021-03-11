@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../../../../etc/server"
+		},
+		{
+			"path": "../../../../../etc/systemd/system"
 		}
 	],
 	"settings": {

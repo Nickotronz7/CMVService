@@ -1,4 +1,4 @@
-import cv2
+from cv2 import cv2
 import numpy
 import sys
 import base64
@@ -14,13 +14,13 @@ encodedPic = args[1]
 if (encodedPic[:2] != '/9'):
     encodedPic = encodedPic[27:]
 
-picName = str(calendar.timegm(time.gmtime()))+".png"
+picName = str(calendar.timegm(time.gmtime()))+".jpg"
 tpic = open("/tmp/"+picName, "wb")
 decodedPic = base64.b64decode(encodedPic)
 tpic.write(decodedPic)
 tpic.close()
 
-img = cv2.imread("/tmp/"+picName)
+img = cv2.imread("/tmp/"+picName,)
 
 img_shape = img.shape
 height = img_shape[0]
@@ -45,4 +45,3 @@ elif (iMax == 1):
     copyfile("/tmp/"+picName, destPic_path+'G/'+picName)
 else:
     copyfile("/tmp/"+picName, destPic_path+'B/'+picName)
-

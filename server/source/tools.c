@@ -32,7 +32,7 @@ void parse_object(char *string)
 
     if (operation->valueint)
     {
-        strcpy(systemCall, "python3 ");
+        strcpy(systemCall, "/usr/bin/python3 ");
         strcat(systemCall, pyS_path);
         strcat(systemCall, "histograma.py ");
         strcat(systemCall, histo_path);
@@ -42,7 +42,7 @@ void parse_object(char *string)
     }
     else
     {
-        strcpy(systemCall, "python3 ");
+        strcpy(systemCall, "/usr/bin/python3 ");
         strcat(systemCall, pyS_path);
         strcat(systemCall, "colors.py ");
         strcat(systemCall, colores_path);

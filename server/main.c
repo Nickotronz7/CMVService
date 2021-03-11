@@ -15,46 +15,46 @@
 int main(int c, char **v)
 {
 
-    /* Our process ID and Session ID */
-    pid_t pid, sid;
+    // /* Our process ID and Session ID */
+    // pid_t pid, sid;
 
-    /* Fork off the parent process */
-    pid = fork();
-    if (pid < 0)
-    {
-        exit(EXIT_FAILURE);
-    }
-    /* If we got a good PID, then
-           we can exit the parent process. */
-    if (pid > 0)
-    {
-        exit(EXIT_SUCCESS);
-    }
+    // /* Fork off the parent process */
+    // pid = fork();
+    // if (pid < 0)
+    // {
+    //     exit(EXIT_FAILURE);
+    // }
+    // /* If we got a good PID, then
+    //        we can exit the parent process. */
+    // if (pid > 0)
+    // {
+    //     exit(EXIT_SUCCESS);
+    // }
 
-    /* Change the file mode mask */
-    umask(0);
+    // /* Change the file mode mask */
+    // umask(0);
 
-    /* Open any logs here */
+    // /* Open any logs here */
 
-    /* Create a new SID for the child process */
-    sid = setsid();
-    if (sid < 0)
-    {
-        /* Log the failure */
-        exit(EXIT_FAILURE);
-    }
+    // /* Create a new SID for the child process */
+    // sid = setsid();
+    // if (sid < 0)
+    // {
+    //     /* Log the failure */
+    //     exit(EXIT_FAILURE);
+    // }
 
-    /* Change the current working directory */
-    if ((chdir("/")) < 0)
-    {
-        /* Log the failure */
-        exit(EXIT_FAILURE);
-    }
+    // /* Change the current working directory */
+    // if ((chdir("/")) < 0)
+    // {
+    //     /* Log the failure */
+    //     exit(EXIT_FAILURE);
+    // }
 
-    /* Close out the standard file descriptors */
-    close(STDIN_FILENO);
-    close(STDOUT_FILENO);
-    close(STDERR_FILENO);
+    // /* Close out the standard file descriptors */
+    // close(STDIN_FILENO);
+    // close(STDOUT_FILENO);
+    // close(STDERR_FILENO);
 
     t_port_val = (char *)malloc(MAXCHAR * sizeof(char));
     t_colores_val = (char *)malloc(MAXCHAR * sizeof(char));
@@ -134,6 +134,7 @@ int main(int c, char **v)
 
     // load_config();
     serve_forever(port);
+    // exit(EXIT_SUCCESS);
     return 0;
 }
 
@@ -166,7 +167,6 @@ void route()
 
         printf("HTTP/1.1 200 OK\r\n\r\n");
         printf("Wow, seems that you POSTED %lld bytes. \r\n", payload_size);
-        // fprintf(stderr, "%lld\n", payload_size);
         parse_object(payload);
         fprintf(stderr, "200 OK :D\n");
     }

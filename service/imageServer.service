@@ -1,0 +1,10 @@
+[Unit]
+Description=Image Server Aplication HTTP server
+ 
+[Service]
+Type=simple
+ExecStart=/opt/imageServer/./CMVService
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
