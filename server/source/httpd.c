@@ -147,7 +147,7 @@ void respond(int n)
 //  fd;
 //  , bytes_read;
 //  char *ptr;
-  int buf_size = 1048576;
+  int buf_size = 10000000;
 
   buf = malloc(buf_size);
   rcvd = recv(clients[n], buf, buf_size, 0);

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "../header/tools.h"
 #include "../header/cJSON.h"
@@ -17,7 +18,7 @@ int getlen(char line[])
 
 void parse_object(char *string)
 {
-    clean_string(string);
+    clean_string(string);    
     cJSON *json = cJSON_Parse(string);
 
     cJSON *operation = NULL;
@@ -31,7 +32,7 @@ void parse_object(char *string)
 
     if (operation->valueint)
     {
-        strcpy(systemCall, "python3 ");
+        strcpy(systemCall, "/usr/bin/python3 ");
         strcat(systemCall, pyS_path);
         strcat(systemCall, "histograma.py ");
         strcat(systemCall, histo_path);
@@ -41,7 +42,7 @@ void parse_object(char *string)
     }
     else
     {
-        strcpy(systemCall, "python3 ");
+        strcpy(systemCall, "/usr/bin/python3 ");
         strcat(systemCall, pyS_path);
         strcat(systemCall, "colors.py ");
         strcat(systemCall, colores_path);
