@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+=======
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../etc/server"
+		},
+		{
+			"path": "../../../../../etc/systemd/system"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"optional": "cpp"
+		}
+	}
+}
+>>>>>>> a9b92885a27f51aa0328d4477a135ef6528e1915
