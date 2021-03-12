@@ -26,7 +26,8 @@ export default function ImagePickerExample() {
   const SendJson = async () => {
     try {
       await fetch(
-        "https://68d66081-c7b9-4a6f-af88-1f187bb3e75c.mock.pstmn.io",
+        // "https://68d66081-c7b9-4a6f-af88-1f187bb3e75c.mock.pstmn.io/",
+        "http://192.168.50.131:5010/",
         {
           method: "post",
           mode: "no-cors",
